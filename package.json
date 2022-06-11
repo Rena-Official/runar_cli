@@ -1,9 +1,9 @@
 {
-  "name": "runa_cli",
+  "name": "runar",
   "version": "1.0.0",
   "description": "",
   "bin": {
-    "runa-cli": "bin/lunar-cli"
+    "runar": "bin/lunar-cli"
   },
   "directories": {
     "lib": "lib"
