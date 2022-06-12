@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const symbols = require("log-symbols");
 const res = path.resolve;
 const exist = fs.existsSync;
-module.exports = async function (token, prefix, mongooseConnectionString) {
+module.exports = async function (token, prefix, mongooseConnectionString, id) {
   if (exist(res("src")))
     return console.log(
       chalk.red(`${symbols.error} "src"フォルダを削除してください`)
@@ -30,7 +30,8 @@ module.exports = async function (token, prefix, mongooseConnectionString) {
     `{
     "token": "${token}",
     "prefix": "${prefix}",
-    "mongooseConnectionString": "${mongooseConnectionString}"
+    "mongooseConnectionString": "${mongooseConnectionString}",
+    "serverId": "${id}"
 }`);
   console.log(chalk.green(`${symbols.success} config.jsonを作成しました`));
 
@@ -53,7 +54,7 @@ module.exports = async function (token, prefix, mongooseConnectionString) {
     "utf8",
     async (err, data) => {
       if (err) throw err;
-      await fs.writeFileSync(res("src/handlers/index.js"), data, (err) =>
+      await fs.writeFileSync(res("src/handler/index.js"), data, (err) =>
         console.log(err)
       );
       console.log(chalk.green(`${symbols.success} index.jsを作成しました`));

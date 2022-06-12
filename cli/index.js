@@ -30,9 +30,14 @@ inquirer
             name: "mongo",
             message: "mongooseの接続URLを入力してください: ",
           },
+          {
+            type: "input",
+            name: "id",
+            message: "テスト用サーバーのIDを入力してください: ",
+          },
         ])
-        .then(({ botToken, botPrefix, mongo }) => {
-          newProject(botToken, botPrefix, mongo);
+        .then(({ botToken, botPrefix, mongo, id }) => {
+          newProject(botToken, botPrefix, mongo, id);
         });
     } else {
       process.exit()

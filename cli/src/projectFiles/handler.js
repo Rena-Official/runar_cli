@@ -47,12 +47,8 @@ module.exports = async (client) => {
     arrayOfSlashCommands.push(file);
   });
   client.on("ready", async () => {
-    await client.application.commands.set(arrayOfSlashCommands);
+    await client.application.commands.set(arrayOfSlashCommands, client.config.serverId);
   });
-
-  client.on("guildCreate", async (guild) => {
-    await client.application.commands.set(arrayOfSlashCommands, guild.id);
-  })
   const { mongooseConnectionString } = require('../config/config.json')
   if (!mongooseConnectionString) return;
 
