@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const inquirer = require("inquirer");
-const newProject = require("./templates/project");
+const newProject = require("./src/templates/project");
 
 inquirer
   .prompt([
